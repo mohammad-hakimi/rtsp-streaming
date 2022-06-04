@@ -19,8 +19,8 @@ class VideoStream extends EventEmitter {
     stream2Socket() {
         this.server = new WebSocket.Server({port: this.port})
         this.server.on('connection', async (socket, request) => {
-            if (typeof this.streamUrl === 'function') {
-                this.streamUrl = await this.streamUrl(request);
+            if (typeof this.url === 'function') {
+                this.url = await this.url(request);
             }
             console.log(`New connection: ${this.name}`)
 
@@ -43,10 +43,10 @@ class VideoStream extends EventEmitter {
         streamHeader.writeUInt16BE(this.width, 4)
         streamHeader.writeUInt16BE(this.height, 6)
         socket.send(streamHeader, {binary: true})
-        console.log(`New connection: ${this.name} - ${this.wsServer.clients.length} total`)
+        console.log(`${this.name} connected - ${this.server.clients.length} total`)
         this.start()
         return socket.on("close", function (code, message) {
-            return console.log(`${this.name} disconnected - ${this.wsServer.clients.length} total`)
+            return console.log(`${this.name} disconnected - ${this.server.clients.length} total`)
         })
     }
 
