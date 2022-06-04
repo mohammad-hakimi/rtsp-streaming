@@ -1,9 +1,9 @@
 {
-  "name": "node-rtsp-stream-es6",
-  "version": "1.0.7",
+  "name": "rtsp-streaming",
+  "version": "1.0.8",
   "description": "RTSP stream through WebSocket",
   "main": "index.js",
-  "author": "Wifsimster",
+  "author": "Mohammad Hakimi",
   "licenses": [
     {
       "type": "MIT",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Wifsimster/node-rtsp-stream-es6"
+    "url": "https://github.com/mohammad-hakimi/rtsp-streaming"
   },
   "dependencies": {
     "jsmpeg": "^1.0.0",
